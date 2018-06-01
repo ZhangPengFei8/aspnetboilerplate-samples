@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- xml中必须转义的字符和转义符
+&(逻辑与)  &amp;      
+<(小于)    &lt;        
+>(大于)    &gt;        
+"(双引号)  &quot;      
+'(单引号)  &apos; 
+-->
+<DocType code='ArrestDoc' name='逮捕书'>
+  <TextSection>
+    <Section code='Head' name='文书首部' value='' rowType='one'>
+        <Info code='CaseNO.'  name='案号' value=''>
+        </Info>
+        <Info code='InvestigationOrgan'  name='侦查机关' value=''>
+        </Info>
+        <Info code='ProcuratorateName'  name='检察院名称' value=''>
+        </Info>
+    </Section>
+    <Section code='CaseCause' name='案由和案件来源' value='' rowType='one'>
+        <Info code='ReportCaseDate'  name='报案日期' value=''>
+        </Info>
+        <Info code='ArriveCaseDate'  name='归案日期' value=''>
+        </Info>
+    </Section>
+    <Section code='SBaseInfo' name='嫌疑人基本信息' value=''  rowType='more'>
+        <Info code='Name' name='嫌疑人姓名' >
+        </Info>
+        <Info code='Sex' name='嫌疑人性别' >
+        </Info>
+        <Info code='Nation' name='民族' >
+        </Info>
+        <Info code='Birthday' name='出生日期' >
+        </Info>
+        <Info code='SchoolRecord' name='学历' >
+        </Info>
+        <Info code='IdCard' name='身份证号' >
+        </Info>
+        <Info code='CurrentAddress' name='现住址' >
+        </Info>
+        <Info code='NativePlace' name='户籍地' >
+        </Info>
+    </Section >
+  </TextSection>
+</DocType>

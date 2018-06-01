@@ -52,6 +52,8 @@ namespace AbpHangfireConsoleApp
 
             BackgroundJobServerOptions serverOptions = new BackgroundJobServerOptions
             {
+                //"queue4", "queue5", "queue6", "queue7", "queue8", "queue9",
+                Queues = new[] { "queue1", "queue2","queue3", "queue4", "queue5", "queue6", "queue7", "queue8", "queue9", "default" }
             };
 
             app.UseHangfireServer(serverOptions);        }

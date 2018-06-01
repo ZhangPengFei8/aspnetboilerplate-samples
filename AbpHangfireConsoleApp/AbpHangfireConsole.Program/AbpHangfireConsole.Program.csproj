@@ -208,7 +208,16 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
+    <Folder Include="App_Data\CaseTxt\" />
+    <Folder Include="App_Data\CaseXml\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\Xml\ArrestDocConfig.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Data\Xml\ArrestDocRules.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -148,6 +148,11 @@
     <Compile Include="Framework\HangfireJobBase.cs" />
     <Compile Include="Framework\HangfireParamsInputBase.cs" />
     <Compile Include="Framework\IHangfireParamsInputBase.cs" />
+    <Compile Include="Jobs\DocExtract\DocExtractJob4GongZuoBiLu.cs" />
+    <Compile Include="Jobs\DocExtract\DocExtractJob3ZhengJuCaiLiao.cs" />
+    <Compile Include="Jobs\DocExtract\DocExtractJob2DaBianZhuang.cs" />
+    <Compile Include="Jobs\DocExtract\Dtos\DocExtractParamsInput.cs" />
+    <Compile Include="Jobs\DocExtract\DocExtractJob1QiSuZhuang.cs" />
     <Compile Include="Jobs\GetServers\GetServersJob.cs" />
     <Compile Include="Jobs\GetServers\Dtos\GetServersParamsInput.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
