@@ -3,6 +3,7 @@ using Hangfire.Console;
 using Hangfire.Dashboard;
 using Microsoft.Owin;
 using Owin;
+using System;
 
 [assembly: OwinStartup(typeof(AbpHangfireConsoleApp.Startup))]
 
@@ -53,9 +54,31 @@ namespace AbpHangfireConsoleApp
             BackgroundJobServerOptions serverOptions = new BackgroundJobServerOptions
             {
                 //"queue4", "queue5", "queue6", "queue7", "queue8", "queue9",
-                Queues = new[] { "queue1", "queue2","queue3", "queue4", "queue5", "queue6", "queue7", "queue8", "queue9", "default" }
-            };
+                //WorkerCount = Environment.ProcessorCount * 5,
+                ServerName = String.Format("{0}.{1}", Environment.MachineName + "xxxx1", Guid.NewGuid().ToString()),
 
-            app.UseHangfireServer(serverOptions);        }
+                // Queues = new[] { "queue1", "queue2","queue3", "queue4", "queue5", "queue6", "queue7", "queue8", "queue9", "default" }
+                Queues = new[] { "queue1", "queue2", "queue3", "queue4", "queue5", "queue6", "queue7" }
+            };
+            BackgroundJobServerOptions serverOptions1 = new BackgroundJobServerOptions
+            {
+                ServerName = String.Format("{0}.{1}", Environment.MachineName + "xxxx2", Guid.NewGuid().ToString()),
+                Queues = new[] { "queue8" }
+            };
+            BackgroundJobServerOptions serverOptions2 = new BackgroundJobServerOptions
+            {
+                ServerName = String.Format("{0}.{1}", Environment.MachineName + "xxxx3", Guid.NewGuid().ToString()),
+                Queues = new[] {  "queue9"}
+            };
+            BackgroundJobServerOptions serverOptions3 = new BackgroundJobServerOptions
+            {
+                ServerName = String.Format("{0}.{1}", Environment.MachineName + "xxxx4", Guid.NewGuid().ToString()),
+                Queues = new[] { "default" }
+            };
+            app.UseHangfireServer(serverOptions1);
+            app.UseHangfireServer(serverOptions2);
+            app.UseHangfireServer(serverOptions3);
+            app.UseHangfireServer(serverOptions);
+        }
     }
 }

@@ -28,7 +28,7 @@ namespace AbpHangfireConsoleApp
                     //Kick off a sample job for 10 seconds from now
                     //BackgroundJob.Schedule<GetServersJob>(x => x.ExecuteJob(null, new GetServersParamsInput()), TimeSpan.FromSeconds(10));
                     //Console.WriteLine("Wait for the job to execute. Otherwise press any key to terminate....");
-                    //SimpleTest(30);
+                    //SimpleTest(100);
                     DocExtract(10);
                     Console.ReadKey();
                 }
@@ -53,7 +53,6 @@ namespace AbpHangfireConsoleApp
                 jobId2 = client.ContinueWith<DocExtractJob2DaBianZhuang>(jobId1, x => x.ExecuteJob(null, new DocExtractParamsInput() { CaseNo = caseNo }));
                 jobId3 = client.ContinueWith<DocExtractJob3ZhengJuCaiLiao>(jobId1, x => x.ExecuteJob(null, new DocExtractParamsInput() { CaseNo = caseNo }));
                 jobId4 = client.ContinueWith<DocExtractJob4GongZuoBiLu>(jobId1, x => x.ExecuteJob(null, new DocExtractParamsInput() { CaseNo = caseNo }));
-                client.Enqueue(() => SomeMethod5(caseNo));
             }
 
         }
@@ -139,9 +138,10 @@ namespace AbpHangfireConsoleApp
         [Queue("queue3")]
         public static void SomeMethod3(int i)
         {
-            Console.WriteLine(i + ":某案件3-a");
             Thread.Sleep(10000);
-            Console.WriteLine(i + ":某案件3-b");
+            Console.WriteLine(i + ":某案件3a");
+            //Thread.Sleep(5000);
+            //Console.WriteLine(i + ":某案件3b");
         }
     }
 }
